@@ -1,0 +1,27 @@
+server:
+  port: 9008
+spring:
+  application:
+    name: village-user #指定服务名
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.2:3306/village_user?characterEncoding=UTF8
+    username: root
+    password: admin
+  jpa:
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 192.168.2.2
+  rabbitmq:
+    host: 192.168.2.2
+village:
+  jwt:
+    key: dajian #盐
+    ttl: 3600000 #毫秒 延迟时间
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+  instance:
+    prefer-ip-address: true #部署到线上时可以模块之间访问

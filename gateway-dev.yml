@@ -1,0 +1,16 @@
+server:
+  port: 9012
+spring:
+  application:
+    name: village-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+  instance:
+    prefer-ip-address: true #部署到线上时可以模块之间访问
+zuul:
+  routes:
+    village-base: /base/** #路由到base
+    village-user: /user/**
+    village-qa: /qa/**
